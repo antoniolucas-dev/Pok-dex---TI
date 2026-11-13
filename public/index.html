@@ -8,6 +8,13 @@
 </head>
 <body>
   <main class="pokedex">
+    <div class="luzes" aria-hidden="true">
+      <span class="lente"></span>
+      <span class="led led-vermelho"></span>
+      <span class="led led-amarelo"></span>
+      <span class="led led-verde"></span>
+    </div>
+
     <section class="tela">
       <p id="aviso" class="aviso" hidden></p>
       <img id="imagem" alt="" hidden>
@@ -25,8 +32,16 @@
 
     <div class="navegacao">
       <button id="anterior" type="button">◀ Anterior</button>
+      <button id="aleatorio" type="button">🎲 Aleatório</button>
       <button id="proximo" type="button">Próximo ▶</button>
     </div>
+
+    <section class="historico" id="secao-historico" hidden>
+      <h2>Vistos recentemente</h2>
+      <ul id="historico"></ul>
+    </section>
+
+    <p class="dica">Dica: use as setas ← → do teclado</p>
   </main>
   <script type="module" src="app.js"></script>
 </body>

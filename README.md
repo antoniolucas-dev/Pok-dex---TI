@@ -1,4 +1,5 @@
 # Pokédex UC33
+
 Serviço web em TypeScript (Node.js + Express 5) que consome a PokéAPI, com uma página em HTML/CSS/JS que consome só o nosso serviço.
 
 ## Como rodar
@@ -21,3 +22,6 @@ Erros: `400` nome inválido, `404` não encontrado, `503` PokéAPI lenta/fora (t
 ## Desafios feitos
 - Desafio 1: tipos em português. Um objeto `TIPOS_PT` no `app.js` traduz os 18 tipos só na tela; a API continua devolvendo em inglês, e a classe CSS (`tipo-fire` etc.) segue usando o nome original. Tipos que não estiverem no objeto aparecem no nome original.
 - Desafio 2: cores para todos os tipos. O `style.css` agora tem uma classe `.tipo-*` para cada um dos 18 tipos de Pokémon (antes eram só 6), com tons escuros o bastante para o texto branco ficar legível.
+- Desafio 3: histórico. Os últimos 5 Pokémon vistos aparecem como botões clicáveis abaixo dos controles (sem duplicar o mesmo Pokémon). Clicar volta para ele, e como o servidor tem cache, a resposta é instantânea.
+- Desafio 4: botão Aleatório. Sorteia um número de 1 a 151 com `Math.random()`, nunca repetindo o que está na tela.
+- Extras de interação e visual: setas ← → do teclado, borda da tela na cor do tipo, animação de entrada da imagem, luzes no topo do aparelho e estados de hover/foco nos botões (respeitando `prefers-reduced-motion`).

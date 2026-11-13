@@ -1,6 +1,15 @@
 const $ = (id) => document.getElementById(id);
 let numeroAtual = 0;
 
+// Desafio 1: a API continua mandando em inglês; só a tela traduz.
+const TIPOS_PT = {
+  normal: 'normal', fire: 'fogo', water: 'água', electric: 'elétrico',
+  grass: 'planta', ice: 'gelo', fighting: 'lutador', poison: 'veneno',
+  ground: 'terra', flying: 'voador', psychic: 'psíquico', bug: 'inseto',
+  rock: 'pedra', ghost: 'fantasma', dragon: 'dragão', dark: 'sombrio',
+  steel: 'aço', fairy: 'fada',
+};
+
 async function pedirPokemon(termo) {
   let resposta;
   try {
@@ -26,7 +35,7 @@ function mostrarPokemon(p) {
   $('nome').textContent = p.nome;
   $('tipos').replaceChildren(...p.tipos.map((tipo) => {
     const li = document.createElement('li');
-    li.textContent = tipo;
+    li.textContent = TIPOS_PT[tipo] ?? tipo;
     li.className = `tipo tipo-${tipo}`;
     return li;
   }));

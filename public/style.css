@@ -9,12 +9,24 @@ body { margin: 0; min-height: 100vh; display: grid; place-items: center; backgro
 #nome { text-transform: capitalize; color: #0f172a; }
 .tipos { list-style: none; display: flex; gap: 6px; justify-content: center; padding: 0; margin: 8px 0 0; }
 .tipo { padding: 3px 10px; border-radius: 999px; color: #fff; font-size: 13px; background: #64748b; }
+.tipo-normal { background: #78716c; }
 .tipo-fire { background: #ea580c; }
 .tipo-water { background: #2563eb; }
+.tipo-electric { background: #a16207; }
 .tipo-grass { background: #16a34a; }
-.tipo-electric { background: #ca8a04; }
+.tipo-ice { background: #0e7490; }
+.tipo-fighting { background: #b91c1c; }
 .tipo-poison { background: #9333ea; }
+.tipo-ground { background: #92400e; }
+.tipo-flying { background: #4f46e5; }
 .tipo-psychic { background: #db2777; }
+.tipo-bug { background: #4d7c0f; }
+.tipo-rock { background: #57534e; }
+.tipo-ghost { background: #6d28d9; }
+.tipo-dragon { background: #1d4ed8; }
+.tipo-dark { background: #1f2937; }
+.tipo-steel { background: #475569; }
+.tipo-fairy { background: #be185d; }
 .aviso { margin: 0 0 8px; padding: 6px; border-radius: 6px; font-size: 14px; background: #fee2e2; color: #b91c1c; }
 .aviso.info { background: #e0f2fe; color: #075985; }
 .busca { display: flex; gap: 6px; margin: 16px 0 10px; }

@@ -20,4 +20,4 @@ Erros: `400` nome inválido, `404` não encontrado, `503` PokéAPI lenta/fora (t
 
 ## Desafios feitos
 - Desafio 1: tipos em português. Um objeto `TIPOS_PT` no `app.js` traduz os 18 tipos só na tela; a API continua devolvendo em inglês, e a classe CSS (`tipo-fire` etc.) segue usando o nome original. Tipos que não estiverem no objeto aparecem no nome original.
-- (acrescentem aqui o segundo desafio)
+- Desafio 2: cores para todos os tipos. O `style.css` agora tem uma classe `.tipo-*` para cada um dos 18 tipos de Pokémon (antes eram só 6), com tons escuros o bastante para o texto branco ficar legível.

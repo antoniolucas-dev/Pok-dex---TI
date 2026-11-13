@@ -4,44 +4,50 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Pokédex · UC33</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700;800&family=Figtree:wght@400;500;600;700&display=swap">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="pokedex">
-    <div class="luzes" aria-hidden="true">
-      <span class="lente"></span>
-      <span class="led led-vermelho"></span>
-      <span class="led led-amarelo"></span>
-      <span class="led led-verde"></span>
-    </div>
-
-    <section class="tela">
-      <p id="aviso" class="aviso" hidden></p>
-      <img id="imagem" alt="" hidden>
-      <p class="identidade">
-        <span id="numero">#---</span>
-        <strong id="nome">---</strong>
-      </p>
-      <ul id="tipos" class="tipos"></ul>
+  <main class="pokedex" id="pokedex">
+    <section class="palco">
+      <p id="numero" class="numero">#---</p>
+      <img id="imagem" class="sprite" alt="" hidden>
+      <div class="ficha">
+        <h1 id="nome">---</h1>
+        <ul id="tipos" class="tipos"></ul>
+      </div>
     </section>
 
-    <form id="busca" class="busca">
-      <input name="termo" placeholder="nome ou número, ex.: pikachu ou 25" maxlength="40" required autocomplete="off">
-      <button type="submit">Buscar</button>
-    </form>
+    <aside class="painel">
+      <header>
+        <p class="titulo">Pokédex</p>
+        <p class="sub">Busque pelo nome ou pelo número.</p>
+      </header>
 
-    <div class="navegacao">
-      <button id="anterior" type="button">◀ Anterior</button>
-      <button id="aleatorio" type="button">🎲 Aleatório</button>
-      <button id="proximo" type="button">Próximo ▶</button>
-    </div>
+      <form id="busca" class="busca">
+        <input name="termo" placeholder="nome ou número" maxlength="40" required autocomplete="off" aria-label="Nome ou número do Pokémon">
+        <button type="submit">Buscar</button>
+      </form>
 
-    <section class="historico" id="secao-historico" hidden>
-      <h2>Vistos recentemente</h2>
-      <ul id="historico"></ul>
-    </section>
+      <div class="estado">
+        <p id="aviso" class="aviso" role="status" hidden></p>
+      </div>
 
-    <p class="dica">Dica: use as setas ← → do teclado</p>
+      <div class="navegacao">
+        <button id="anterior" type="button">◀ Anterior</button>
+        <button id="aleatorio" type="button">Aleatório</button>
+        <button id="proximo" type="button">Próximo ▶</button>
+      </div>
+
+      <section class="historico" id="secao-historico" hidden>
+        <h2>Vistos recentemente</h2>
+        <ul id="historico"></ul>
+      </section>
+
+      <p class="dica">As setas ← → do teclado também navegam.</p>
+    </aside>
   </main>
   <script type="module" src="app.js"></script>
 </body>

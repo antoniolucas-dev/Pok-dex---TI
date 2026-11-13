@@ -3,7 +3,7 @@ let numeroAtual = 0;
 
 const MAX_ALEATORIO = 151; // primeira geração
 const MAX_HISTORICO = 5;
-let historico = []; // { numero, nome }, o mais recente primeiro
+let historico = []; // { numero, nome, imagem }, o mais recente primeiro
 
 // Desafio 1: a API continua mandando em inglês; só a tela traduz.
 const TIPOS_PT = {
@@ -34,7 +34,7 @@ function mostrarAviso(texto, tipo = 'erro') {
 
 // Desafio 3: últimos 5 Pokémon vistos, clicáveis.
 function registrarNoHistorico(p) {
-  historico = [{ numero: p.numero, nome: p.nome }, ...historico.filter((h) => h.numero !== p.numero)]
+  historico = [{ numero: p.numero, nome: p.nome, imagem: p.imagem }, ...historico.filter((h) => h.numero !== p.numero)]
     .slice(0, MAX_HISTORICO);
   desenharHistorico();
 }
@@ -45,7 +45,15 @@ function desenharHistorico() {
     const li = document.createElement('li');
     const botao = document.createElement('button');
     botao.type = 'button';
-    botao.textContent = `#${String(h.numero).padStart(3, '0')} ${h.nome}`;
+    const mini = h.imagem ? document.createElement('img') : document.createElement('span');
+    if (h.imagem) { mini.src = h.imagem; mini.alt = ''; } else { mini.className = 'sem-imagem'; }
+    const nome = document.createElement('span');
+    nome.className = 'h-nome';
+    nome.textContent = h.nome;
+    const num = document.createElement('span');
+    num.className = 'h-num';
+    num.textContent = `#${String(h.numero).padStart(3, '0')}`;
+    botao.append(mini, nome, num);
     botao.classList.toggle('atual', h.numero === numeroAtual);
     botao.addEventListener('click', () => buscar(String(h.numero)));
     li.append(botao);
@@ -65,9 +73,10 @@ function mostrarPokemon(p) {
     return li;
   }));
 
-  // A borda da tela ganha a cor do primeiro tipo (reaproveita as cores do CSS).
-  const primeiro = $('tipos').firstElementChild;
-  document.querySelector('.tela').style.borderColor = primeiro ? getComputedStyle(primeiro).backgroundColor : '';
+  // O palco ganha as cores dos tipos (a segunda cor só existe em Pokémon de dois tipos).
+  const cores = [...$('tipos').children].map((li) => getComputedStyle(li).getPropertyValue('--cor').trim());
+  $('pokedex').style.setProperty('--a', cores[0] || '');
+  $('pokedex').style.setProperty('--b', cores[1] || cores[0] || '');
 
   const img = $('imagem');
   img.hidden = !p.imagem;
